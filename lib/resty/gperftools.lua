@@ -4,6 +4,12 @@ local ffi = require "ffi"
 local ffi_cdef = ffi.cdef
 local ffi_C = ffi.C
 
+local gperf_tools_module = "ngx_google_perftools_profiler_module"
+if not string.find(ngx.config.nginx_configure(),
+                   gperf_tools_module, 1, true) then
+    error("needs ".. gperf_tools_module)
+end
+
 ffi_cdef[[
 typedef unsigned char u_char;
 
