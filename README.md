@@ -38,3 +38,25 @@ Then you can start/stop gperftools with `curl` like below:
     curl 'http://127.0.0.1/gperftools?profiler=cpu&action=start&name=/tmp/ngx_prof'
     curl 'http://127.0.0.1/gperftools?profiler=cpu&action=stop'
 ```
+
+## API
+
+### ok, err = proto.cpu.start(name)
+Start cpu profiler, infomations stores in `name`.
+
+Notice: It will NOT add pid suffix for the name.
+
+### proto.cpu.stop()
+Stop cpu profiler.
+
+### proto.heap.start(name, n)
+Start heap profiler, infomations stores in `name`, dump for every `n` seconds.
+
+Notice: It will NOT add pid suffix for the name.
+
+### proto.heap.dump(s)
+Dump heap profiler infomations, `s` for the reason.
+
+### proto.heap.stop()
+Stop heap profiler.
+
