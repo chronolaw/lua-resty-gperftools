@@ -41,16 +41,18 @@ Then you can start/stop gperftools with `curl` like below:
 
 ## API
 
-### ok, err = proto.cpu.start(name)
+### ok, err = proto.cpu.start(name, *during*)
 Start cpu profiler, infomations stores in `name`.
+If `during` is given, the profiler will STOP after `during` seconds.
 
 Notice: It will NOT add pid suffix for the name.
 
 ### proto.cpu.stop()
 Stop cpu profiler.
 
-### proto.heap.start(name, n)
+### proto.heap.start(name, *n*, *during*)
 Start heap profiler, infomations stores in `name`, dump for every `n` seconds.
+If `during` is given, the profiler will STOP after `during` seconds.
 
 Notice: It will NOT add pid suffix for the name.
 
