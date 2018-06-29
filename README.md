@@ -27,6 +27,9 @@ Some simple examples:
 
             gperftools[profiler][action](name)
 
+            -- or profiler in 10 seconds
+            -- gperftools[profiler][action](name, 10)
+
             ngx.say("OK")
         }
     }
@@ -36,31 +39,32 @@ Then you can start/stop gperftools with `curl` like below:
 
 ```shell
     curl 'http://127.0.0.1/gperftools?profiler=cpu&action=start&name=/tmp/ngx_prof'
+    ...     # ab/http_load/wrk and so on
     curl 'http://127.0.0.1/gperftools?profiler=cpu&action=stop'
 ```
 
 ## API
 
-### ok, err = proto.cpu.start(name, *during*)
+### ok, err = gperftools.cpu.start(name, *during*)
 Start cpu profiler, infomations stores in `name`.
 
 If `during` is given, the profiler will STOP after `during` seconds.
 
 Notice: It will NOT add pid suffix for the name.
 
-### proto.cpu.stop()
+### gperftools.cpu.stop()
 Stop cpu profiler.
 
-### proto.heap.start(name, *n*, *during*)
+### gperftools.heap.start(name, *n*, *during*)
 Start heap profiler, infomations stores in `name`, dump for every `n` seconds.
 
 If `during` is given, the profiler will STOP after `during` seconds.
 
 Notice: It will NOT add pid suffix for the name.
 
-### proto.heap.dump(s)
+### gperftools.heap.dump(s)
 Dump heap profiler infomations, `s` for the reason.
 
-### proto.heap.stop()
+### gperftools.heap.stop()
 Stop heap profiler.
 
