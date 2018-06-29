@@ -1,7 +1,7 @@
 # lua-resty-gperftools
 Lua API for [`ngx_google_perftools_profiler_module`](https://github.com/chronolaw/ngx_google_perftools_profiler_module)
 
-Before use this tools, you must compile nginx/openresty with 
+Before use these tools, you must compile nginx/openresty with 
 [`ngx_google_perftools_profiler_module`](https://github.com/chronolaw/ngx_google_perftools_profiler_module)
 
 ## Installation
@@ -43,6 +43,7 @@ Then you can start/stop gperftools with `curl` like below:
 
 ### ok, err = proto.cpu.start(name, *during*)
 Start cpu profiler, infomations stores in `name`.
+
 If `during` is given, the profiler will STOP after `during` seconds.
 
 Notice: It will NOT add pid suffix for the name.
@@ -52,6 +53,7 @@ Stop cpu profiler.
 
 ### proto.heap.start(name, *n*, *during*)
 Start heap profiler, infomations stores in `name`, dump for every `n` seconds.
+
 If `during` is given, the profiler will STOP after `during` seconds.
 
 Notice: It will NOT add pid suffix for the name.
